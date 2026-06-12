@@ -1,6 +1,8 @@
 package giuliaciampa.entities;
 
-public class Videogiochi extends Giochi {
+import giuliaciampa.exceptions.NegativeNumberException;
+
+public class Videogioco extends Gioco {
 
     //ATTRIBUTI
     private String piattaforma;
@@ -8,8 +10,14 @@ public class Videogiochi extends Giochi {
     private Genere genere;
 
     //CONSTRUCTOR MACHINE
-    public Videogiochi(String titolo, int annoPubblicazione, double prezzo, String piattaforma, int durataGioco, Genere genere) {
-        super(titolo, annoPubblicazione, prezzo);
+    public Videogioco(int idGioco, String titolo, int annoPubblicazione, double prezzo, String piattaforma, int durataGioco, Genere genere) {
+        super(idGioco, titolo, annoPubblicazione, prezzo);
+        if (durataGioco < 0) {
+            throw new NegativeNumberException("la durata del gioco non può essere negativa");
+        }
+        if (genere == null) {
+            throw new IllegalArgumentException("Il genere è obbligatorio e deve essere uno di quelli definiti");
+        }
         this.piattaforma = piattaforma;
         this.durataGioco = durataGioco;
         this.genere = genere;
@@ -35,12 +43,12 @@ public class Videogiochi extends Giochi {
 
     @Override
     public String toString() {
-        return "Videogiochi{" +
+        return "Videogioco{" +
                 "idGioco=" + getIdGioco() +
                 ", titolo=" + getTitolo() +
                 ", annoPubblicazione=" + getAnnoPubblicazione() +
                 ", prezzo=" + getPrezzo() +
-                ", piattaforma=" + getPiattaforma() + '\'' +
+                ", piattaforma=" + getPiattaforma() +
                 ", durataGioco=" + getDurataGioco() +
                 ", genere=" + getGenere() +
                 '}';
