@@ -22,13 +22,15 @@ public class Collezione {
 
 
     //METODO 1 - AGGIUNTA DI UN ELEMENTO
-    public void aggiungiUnGioco(Gioco nuovoGioco) {
+    public Gioco aggiungiUnGioco(Gioco nuovoGioco) {
         boolean idEsistente = listaGiochi.stream().anyMatch(gioco -> gioco.getIdGioco() == nuovoGioco.getIdGioco());
         if (idEsistente) {
             throw new DuplicateIdException("id già inserito! Inserisci nuovo id");
         } else {
             listaGiochi.add(nuovoGioco);
         }
+
+        return nuovoGioco;
     }
 
 

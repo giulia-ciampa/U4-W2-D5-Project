@@ -79,7 +79,10 @@ public class Application {
                         Genere genereV = Genere.valueOf(genereStr);
 
                         Videogioco v = new Videogioco(idV, titoloV, annoPubblicazioneV, prezzoV, piattaformaV, durataGiocoV, genereV);
-                        miaCollezione.aggiungiUnGioco(v);
+                        Gioco nuovoVideogioco = miaCollezione.aggiungiUnGioco(v);
+                        System.out.println("gioco aggiunto con successo: " + nuovoVideogioco);
+
+
                         break;
 
 
