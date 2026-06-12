@@ -33,6 +33,7 @@ public class Application {
 
 
         while (true) {
+
             System.out.println("----------GESTIONE GIOCHI--------");
             System.out.println("Digita 1 per aggiungere un videogioco");
             System.out.println("Digita 2 per aggiungere un gioco da tavolo");
@@ -45,13 +46,17 @@ public class Application {
             System.out.println("Digita 8 per vedere delle statistiche sui giochi");
             System.out.print("Scegli un'opzione: ");
 
-            int input = Integer.parseInt(scanner.nextLine());
-            if (input == 0) {
-                System.out.println("Chiusura del programma. Arrivederci!");
-                break;
-            }
 
             try {
+
+                int input = Integer.parseInt(scanner.nextLine());
+
+                if (input == 0) {
+                    System.out.println("Chiusura del programma. Arrivederci!");
+                    break;
+                }
+
+
                 switch (input) {
                     case 1:
                         System.out.println("Hai scelto di aggiungere un VIDEOGIOCO");
